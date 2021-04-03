@@ -4,8 +4,9 @@ import axios from 'axios';
 import './App.css';
 import Feeling from '../Feeling/Feeling';
 import Understanding from '../Understanding/Understanding';
-import Supported from '../Supported/Supported'
-import Comments from '../Comments/Comments'
+import Supported from '../Supported/Supported';
+import Comments from '../Comments/Comments';
+import Review from '../Review/Review';
 
 
 
@@ -30,6 +31,9 @@ function App() {
           </Route>
           <Route path="/comments" exact>
               <Comments />
+          </Route>
+          <Route path="/review">
+            <Review />
           </Route>
         </Router>
       </body>

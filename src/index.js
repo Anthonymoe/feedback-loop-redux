@@ -40,12 +40,26 @@ const supportRating = ( state = 1, action ) => {
     return state;
 }
 
+//receiving comment from comment component
+const newComment = ( state = '', action ) => {
+    console.log( 'in newComment reducer:', action );
+    if( action.type === 'commentUpdate' ){
+        console.log( 'successfully dispatched comment');
+        state = action.payload;
+    }
+    console.log( 'current comment:', state );//should show the selected comment 
+    return state;
+}
+
+
+
 //storing data from components for later use. 
 const store = createStore(
     combineReducers({
         feelingRating: feelingRating,
         understandingRating: understandingRating,
-        supportRating: supportRating
+        supportRating: supportRating,
+        newComment: newComment
     }),
     applyMiddleware( logger )
 )//end of store
