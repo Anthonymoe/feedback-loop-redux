@@ -1,23 +1,25 @@
-import axios from 'axios';
 import {useDispatch } from 'react-redux';
 import {useState} from 'react';
+import {useHistory} from 'react-router-dom';
 
 
 function Feeling() {
-    let[ rating, setRating ] = useState(0);
+    let[ rating, setRating ] = useState('1');
+    let history = useHistory();
+     const dispatch = useDispatch();
 
-    const dispatch = useDispatch();
+    //Sends feelings to the store on and sends user to next route on button click
     const submitFeeling = () => {
         console.log( 'in click' )
         console.log( rating )
         dispatch( {type: 'feelingUpdate', payload: rating })
+        history.push( '/understanding' );
     }
-
+    //changes the value of the rating upon change does not dispatch rating that happens ^^^in submitFeeling
     const handleChange =(event)=>{
         console.log( 'in handleChange:', event.target.value );
         setRating( event.target.value )
     }
-
 
 
     return(
@@ -41,3 +43,4 @@ function Feeling() {
 }
 
 export default Feeling;
+

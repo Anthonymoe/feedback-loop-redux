@@ -1,7 +1,14 @@
 import React from 'react';
+import {HashRouter as Router, Route, Link } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
-import Feeling from '../Feeling/Feeling'
+import Feeling from '../Feeling/Feeling';
+import Understanding from '../Understanding/Understanding';
+import Supported from '../Supported/Supported'
+import Comments from '../Comments/Comments'
+
+
+
 function App() {
 
   return (
@@ -11,7 +18,20 @@ function App() {
         <h4>Don't forget it!</h4>
       </header>
       <body>
-        <Feeling />
+        <Router>
+          <Route path="/" exact>
+            <Feeling />
+          </Route>
+          <Route path="/understanding" exact>
+              <Understanding />
+          </Route>
+          <Route path="/supported" exact>
+              <Supported />
+          </Route>
+          <Route path="/comments" exact>
+              <Comments />
+          </Route>
+        </Router>
       </body>
     </div>
   );
