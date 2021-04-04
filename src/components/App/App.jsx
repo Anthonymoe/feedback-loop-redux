@@ -33,10 +33,10 @@ function App() {
           <Route path="/comments" exact>
               <Comments />
           </Route>
-          <Route path="/review">
+          <Route path="/review" exact>
               <Review />
           </Route>
-          <Route path="/complete">
+          <Route path="/complete" exact>
               <Complete />
           </Route>
         </Router>
